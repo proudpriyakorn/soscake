@@ -18,10 +18,14 @@ class Product {
 
   factory Product.fromJson(Map<String, dynamic> j) {
     return Product(
-      id: j['id'] as int,
+      // ✅ Fixed: Handle both String and int for id
+      id: j['id'] is String ? int.parse(j['id']) : (j['id'] as int),
       title: j['title'] as String,
       description: j['description'] as String,
-      price: (j['price'] is int) ? (j['price'] as int).toDouble() : (j['price'] as num).toDouble(),
+      // ✅ Already handles both int and double
+      price: (j['price'] is int) 
+          ? (j['price'] as int).toDouble() 
+          : (j['price'] as num).toDouble(),
       image: j['image'] as String,
       available: j['available'] as bool? ?? true,
     );
