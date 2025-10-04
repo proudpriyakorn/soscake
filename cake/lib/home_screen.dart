@@ -1,7 +1,6 @@
 // lib/home_screen.dart
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'product_model.dart';
 import 'product_detail_screen.dart';
 import 'product_list_provider.dart';
 
