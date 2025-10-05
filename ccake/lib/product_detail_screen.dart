@@ -1,7 +1,10 @@
 // lib/product_detail_screen.dart
 import 'dart:math' as Math2; // ✅ must be first
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'product_model.dart';
+import 'home_screen.dart';
+import 'cart_provider.dart';
 
 class ProductDetailScreen extends StatelessWidget {
   final Product product;
@@ -57,19 +60,32 @@ class ProductDetailScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 24),
                 ElevatedButton.icon(
-                  onPressed: product.available
-                      ? () {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                                content: Text(
-                                    'Order placed for same-day delivery (demo).')),
-                          );
-                        }
-                      : null,
+                  onPressed: () {
+                    // Add product to cart
+                    Provider.of<CartProvider>(context, listen: false).addToCart(product);
+                    
+                    // Show order placed message
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text('${product.title} added to cart!'),
+                        duration: const Duration(seconds: 2),
+                        backgroundColor: Colors.green,
+                      ),
+                    );
+                    
+                    // Navigate to cart tab on HomeScreen
+                    Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(
+                        builder: (_) => const HomeScreen(initialTabIndex: 1), // Pass 1 for Cart tab
+                      ),
+                      (route) => false,
+                    );
+                  },
                   icon: const Icon(Icons.delivery_dining),
-                  label: const Text('Order for same-day delivery'),
+                  label: const Text('Order placed for same-day delivery (demo)'),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.tealAccent[700],
+                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
                   ),
                 )
               ],

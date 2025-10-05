@@ -24,7 +24,8 @@ import 'firebase_options.dart';
 import 'auth_screen.dart';
 import 'home_screen.dart';
 import 'onboarding_screens.dart';
-import 'product_list_provider.dart';  // ✅ now separated
+import 'product_list_provider.dart';
+import 'cart_provider.dart'; // ✅ เพิ่ม CartProvider
 
 /// ----------------------------
 /// Main Entry Point
@@ -45,8 +46,11 @@ class SosCakeApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => ProductListProvider(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => ProductListProvider()),
+        ChangeNotifierProvider(create: (_) => CartProvider()), // ✅ เพิ่ม CartProvider
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: '!sos!cake',
@@ -97,7 +101,7 @@ class _RootDeciderState extends State<RootDecider> {
 
   @override
   Widget build(BuildContext context) {
-    // If not logged in → go to Auth, else Home
-    return _user == null ? const HomeScreen() : const HomeScreen();
+    // If not logged in → go to Home, else Auth
+    return _user == null ? const HomeScreen() : const AuthScreen();
   }
 }
