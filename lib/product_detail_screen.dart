@@ -81,10 +81,10 @@ class ProductDetailScreen extends StatelessWidget {
                       (route) => false,
                     );
                   },
-                  icon: const Icon(Icons.delivery_dining),
-                  label: const Text('Order placed for same-day delivery (demo)'),
+                  icon: const Icon(Icons.shopping_cart),
+                  label: const Text('Add to Cart '),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.tealAccent[700],
+                    backgroundColor: const Color.fromARGB(255, 29, 5, 93),
                     padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
                   ),
                 )
@@ -127,9 +127,9 @@ class _AquariumBackgroundState extends State<_AquariumBackground>
               center: Alignment(-0.2 + 0.4 * t, -0.6 + 0.3 * t),
               radius: 1.2,
               colors: [
-                Colors.blue.shade900,
-                Colors.blue.shade700,
-                Colors.blue.shade400,
+                const Color.fromARGB(255, 194, 210, 234),
+                const Color.fromARGB(255, 28, 104, 255),
+                const Color.fromARGB(255, 5, 31, 52),
               ],
               stops: const [0.0, 0.6, 1.0],
             ),

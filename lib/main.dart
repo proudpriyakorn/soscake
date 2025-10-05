@@ -25,7 +25,7 @@ import 'auth_screen.dart';
 import 'home_screen.dart';
 import 'onboarding_screens.dart';
 import 'product_list_provider.dart';
-import 'cart_provider.dart'; // ✅ เพิ่ม CartProvider
+import 'cart_provider.dart';
 
 /// ----------------------------
 /// Main Entry Point
@@ -49,7 +49,7 @@ class SosCakeApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => ProductListProvider()),
-        ChangeNotifierProvider(create: (_) => CartProvider()), // ✅ เพิ่ม CartProvider
+        ChangeNotifierProvider(create: (_) => CartProvider()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -101,7 +101,11 @@ class _RootDeciderState extends State<RootDecider> {
 
   @override
   Widget build(BuildContext context) {
-    // If not logged in → go to Home, else Auth
-    return _user == null ? const HomeScreen() : const AuthScreen();
+ 
+    if (_user == null) {
+      return const HomeScreen();
+    } else {
+      return const HomeScreen();
+    }
   }
 }

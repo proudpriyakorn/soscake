@@ -4,13 +4,14 @@ import 'package:provider/provider.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'product_detail_screen.dart';
 import 'product_list_provider.dart';
-import 'cart_provider.dart'; // ✅ เพิ่มบรรทัดนี้
+import 'profile_screen.dart';
+import 'cart_provider.dart';
 
 
 class HomeScreen extends StatefulWidget {
-  final int initialTabIndex; // Add this parameter
+  final int initialTabIndex;
   
-  const HomeScreen({super.key, this.initialTabIndex = 0}); // Default to 0 (Products tab)
+  const HomeScreen({super.key, this.initialTabIndex = 0});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -23,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    _index = widget.initialTabIndex; // Initialize with the passed index
+    _index = widget.initialTabIndex;
     WidgetsBinding.instance.addPostFrameCallback((_) {
       Provider.of<ProductListProvider>(context, listen: false).fetchProducts();
     });
@@ -90,7 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: const Icon(Icons.shopping_cart, color: Colors.white),
             onPressed: () {
               setState(() {
-                _index = 1; // Switch to Cart tab
+                _index = 1;
               });
             },
           ),
@@ -98,7 +99,6 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: Stack(
         children: [
-          // Full-page bh.gif background
           Positioned.fill(
             child: Image.asset(
               'assets/images/bh.gif',
@@ -106,7 +106,6 @@ class _HomeScreenState extends State<HomeScreen> {
               errorBuilder: (c, e, s) => const MainAquariumBackground(),
             ),
           ),
-          // Semi-transparent overlay for better readability
           Positioned.fill(
             child: Container(
               color: Colors.black.withOpacity(0.3),
@@ -257,24 +256,6 @@ class _ProductListTab extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          if (!p.available)
-                            Container(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 6,
-                                vertical: 2,
-                              ),
-                              decoration: BoxDecoration(
-                                color: Colors.red.withOpacity(0.8),
-                                borderRadius: BorderRadius.circular(4),
-                              ),
-                              child: const Text(
-                                'Sold Out',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 10,
-                                ),
-                              ),
-                            ),
                         ],
                       ),
                     ),
@@ -523,54 +504,7 @@ class _CartTab extends StatelessWidget {
 class _ProfileTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          // Profile avatar with bh.gif
-          CircleAvatar(
-            radius: 50,
-            backgroundColor: Colors.white24,
-            backgroundImage: const AssetImage('assets/images/bh.gif'),
-          ),
-          const SizedBox(height: 16),
-          const Text(
-            'Guest User',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          const SizedBox(height: 8),
-          const Text(
-            'Sign in to access your profile',
-            style: TextStyle(color: Colors.white70),
-          ),
-          const SizedBox(height: 24),
-          ElevatedButton.icon(
-            onPressed: () => Navigator.of(context).pushNamed('/onboarding'),
-            icon: const Icon(Icons.login),
-            label: const Text('Sign In'),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.tealAccent[700],
-              padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
-            ),
-          ),
-          const SizedBox(height: 16),
-          TextButton.icon(
-            onPressed: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Settings')),
-              );
-            },
-            icon: const Icon(Icons.settings),
-            label: const Text('Settings'),
-            style: TextButton.styleFrom(foregroundColor: Colors.white70),
-          ),
-        ],
-      ),
-    );
+    return ProfileScreen();
   }
 }
 
