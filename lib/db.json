@@ -1,0 +1,101 @@
+
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Classic Carrot Delight Cake",
+      "description": "Moist spiced carrot cake layered with smooth cream cheese frosting, topped with crushed walnuts and a hint of cinnamon.",
+      "price": 1050,
+      "image": "assets/images/4.png",
+      "available": true
+    },
+    {
+      "id": 2,
+      "title": "Triple signature  Cupcake",
+      "description": "A delightful trio of flavors — rich chocolate, creamy vanilla, and zesty strawberry — swirled together in a soft sponge and topped with a swirl of matching buttercream.",
+      "price": 590,
+      "image": "assets/images/5.png",
+      "available": true
+    },
+    {
+      "id": 3,
+      "title": "Tiramisu Velvet Cake",
+      "description": "A sumptuous blend of espresso-soaked sponge and creamy mascarpone layers, finished with a cloud of cocoa-dusted frosting and a hint of gold shimmer — an elegant twist on the classic Italian indulgence.",
+      "price": 1390,
+      "image": "assets/images/6.png",
+      "available": true
+    },
+    {
+      "id": 4,
+      "title": "strawberry shortcake",
+      "description": "Delicate layers of airy vanilla sponge, luscious whipped cream, and hand-selected fresh strawberries, adorned with a glossy strawberry glaze for a refined, indulgent experience.",
+      "price": 890,
+      "image": "assets/images/7.png",
+      "available": false
+    },
+        {
+      "id": 5,
+      "title": "Strawberry Petite Cake",
+      "description": "A delicate two-tiered sponge cake, layered with velvety whipped cream and crowned with hand-selected, jewel-like strawberries. Each slice offers a harmonious balance of light, airy cake and fresh, luscious fruit—a refined indulgence for the senses.",
+      "price": 690,
+      "image": "assets/images/8.png",
+      "available": true
+    },
+    {
+      "id": 6,
+      "title": "Symphony Layer Cake",
+      "description": "Layers of light sponge and silky whipped cream, crowned with fresh, jewel-like strawberries. An elegant indulgence that delights both the eyes and the palate.",
+      "price": 1090,
+      "image": "assets/images/9.png",
+      "available": true
+    },
+    {
+      "id": 7,
+      "title": "Lemon Cheese Cake",
+      "description": "Bright, zesty lemon sponge layered with smooth, tangy cream, finished with a delicate glaze and lemon zest. A refreshing, elegant treat that awakens the senses.",
+      "price": 1160,
+      "image": "assets/images/10.png",
+      "available": true
+    },
+    {
+      "id": 8,
+      "title": "signature Matcha Cheesecake",
+      "description": "Velvety cheesecake infused with premium matcha, resting on a crisp buttery base and finished with a delicate dusting of green tea powder. A refined balance of earthy bitterness and creamy sweetness in every bite.",
+      "price": 1690,
+      "image": "assets/images/11.png",
+      "available": false
+    },
+        {
+      "id": 9,
+      "title": "Caramel Tart Cake",
+      "description": "Layers of tender sponge and silky caramel cream, crowned with a glossy caramel glaze. A sophisticated harmony of sweet, buttery richness and delicate tart notes in every bite.",
+      "price": 1050,
+      "image": "assets/images/12.png",
+      "available": true
+    },
+    {
+      "id": 10,
+      "title": "Velvet Cake",
+      "description": "Sumptuously soft red velvet layers paired with smooth, creamy frosting. A timeless indulgence that combines elegance, richness, and a touch of romance in every bite.RR",
+      "price": 1290,
+      "image": "assets/images/13.png",
+      "available": true
+    },
+    {
+      "id": 11,
+      "title": "Chocolatet fudge Cake",
+      "description": "Rich, moist chocolate layers enveloped in silky chocolate ganache. A luxurious treat for true chocolate lovers, where every bite melts into pure bliss.",
+      "price": 1490,
+      "image": "assets/images/14.png",
+      "available": true
+    },
+    {
+      "id": 12,
+      "title": "Festive Fruit Cake",
+      "description": "A moist, spiced cake layered with an abundance of glazed fruits and nuts. Elegantly rich and flavorful, celebrating the natural sweetness of hand-selected fruits in every bite.",
+      "price": 1200,
+      "image": "assets/images/15.png",
+      "available": false
+    }
+  ]
+}
